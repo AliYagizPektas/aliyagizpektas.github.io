@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projelerim | Yağız</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0e1117; color: #fafafa; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
+        .nav-link:hover { color: #ff4b4b; transition: 0.3s; }
+        .project-card { background: #1a1c24; border: 1px solid #30363d; transition: 0.3s; overflow: hidden; }
+        .project-card:hover { border-color: #ff4b4b; transform: translateY(-5px); }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed w-full bg-[#0e1117]/90 backdrop-blur-md z-50 py-4 border-b border-gray-800">
+        <div class="max-w-6xl mx-auto px-5 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-[#ff4b4b] tracking-tight">Projelerim</a>
+            <div class="flex gap-8 items-center text-gray-300">
+                <a href="index.html" class="nav-link font-medium">Ana Sayfa</a>
+                <a href="projects.html" class="nav-link font-medium text-[#ff4b4b]">Projelerim</a>
+                <a href="#about" class="nav-link font-medium">Hakkımda</a>
+                <a href="mailto:aliyagizpektas123@gmail.com" class="bg-[#ff4b4b] text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-[#ff6b6b] transition">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pt-40 pb-20 px-5 bg-[#161b22] border-b border-gray-800 text-center">
+        <h1 class="text-5xl font-extrabold tracking-tighter mb-4">Neler <span class="text-[#ff4b4b]">Geliştirdim?</span></h1>
+        <p class="text-xl text-gray-400 max-w-2xl mx-auto">Fikir aşamasından çalışan ürüne kadar, tutkuyla geliştirdiğim ve teknik becerilerimi sergilediğim projelerim.</p>
+    </header>
+
+    <section class="py-20 px-5 max-w-7xl mx-auto">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div class="project-card rounded-3xl p-8">
+                <div class="text-3xl text-[#ff4b4b] mb-4"><i class="fas fa-wallet"></i></div>
+                <h3 class="text-2xl font-bold mb-3 tracking-tight">Hesap Defterim</h3>
+                <p class="text-gray-400 mb-6 leading-relaxed">İşletmeler ve bireyler için tasarlanmış, dinamik formül motoruna ve yürüyen bakiye sistemine sahip finansal takip otomasyonu. Python ve PySide6 ile geliştirildi.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-[#ff4b4b] mb-6">
+                    <span>#Python</span> <span>#PySide6</span> <span>#Pandas</span>
+                </div>
+                <a href="#hesap-detay" class="inline-flex items-center gap-2 text-[#ff4b4b] font-bold hover:text-[#ff6b6b] transition">
+                    Detayları Gör <i class="fas fa-arrow-down text-sm"></i>
+                </a>
+            </div>
+
+            <div class="project-card rounded-3xl p-8">
+                <div class="text-3xl text-blue-400 mb-4"><i class="fas fa-gamepad"></i></div>
+                <h3 class="text-2xl font-bold mb-3 tracking-tight">Unity Uzay Yolculuğu</h3>
+                <p class="text-gray-400 mb-6 leading-relaxed">C# ve Unity oyun motoru kullanılarak geliştirilen, 2D Uzay oyunum.</p>
+                <div class="flex flex-wrap gap-2 text-xs font-mono text-blue-400 mb-6">
+                    <span>#C Sharp</span> <span>#Unity</span> <span>#Unity2D</span> <span>#PixelGame</span>
+                </div>
+                <a href="#space-detay" class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-blue-500 transition">
+                    Detayları Gör <i class="fas fa-arrow-down text-sm"></i>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="hesap-detay" class="py-16 px-5 max-w-6xl mx-auto border-t border-gray-800">
+        <h2 class="text-3xl font-bold mb-8">Hesap Defterim <span class="text-[#ff4b4b]">Detaylı İnceleme</span></h2>
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="space-y-6">
+                <div class="group">
+                    <img src="images/hesap-defteri/mainpage.png" alt="Ana Ekran" class="rounded-xl border border-gray-700 hover:border-[#ff4b4b] transition w-full shadow-2xl">
+                    <p class="text-sm text-center text-gray-500 mt-2 italic">Ana Kontrol Paneli ve Firma Listesi</p>
+                </div>
+            </div>
+            <div class="bg-[#1a1c24] p-8 rounded-3xl border border-gray-800">
+                <h3 class="text-xl font-bold mb-4 text-[#ff4b4b]">Teknik Özellikler</h3>
+                <ul class="space-y-4 text-gray-300">
+                    <li><i class="fas fa-check-circle text-[#ff4b4b] mr-2"></i> <strong>Dinamik Formül Motoru:</strong> Esnek hesaplama altyapısı.</li>
+                    <li><i class="fas fa-check-circle text-[#ff4b4b] mr-2"></i> <strong>Avans Yönetimi:</strong> Çalışan ödeme takibi ve bakiye düşümü.</li>
+                    <li><i class="fas fa-check-circle text-[#ff4b4b] mr-2"></i> <strong>Veri Güvenliği:</strong> Yerel veritabanı ve güvenli yol yapısı.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="space-detay" class="py-16 px-5 max-w-6xl mx-auto border-t border-gray-800">
+        <h2 class="text-3xl font-bold mb-8">Space Travel <span class="text-blue-500">Oynanış Mekanikleri</span></h2>
+        <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="bg-[#1a1c24] p-8 rounded-3xl border border-gray-800 order-2 md:order-1">
+                <h3 class="text-xl font-bold mb-4 text-blue-500">Oyun Hakkında</h3>
+                <p class="text-gray-300 mb-4">Google Play Store'da yayında olan bu projemde, oyuncuların reflekslerini test eden minimalist bir sonsuz koşu deneyimi sundum.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.Larayp.SpaceTravel&hl=en" target="_blank" class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-bold transition">Play Store'da Görüntüle</a>
+            </div>
+            <div class="order-1 md:order-2">
+                <img src="https://via.placeholder.com/600x400/1a1c24/888?text=Oyun+Gorseli+Ekle" alt="Oyun Görseli" class="rounded-xl border border-blue-900 w-full shadow-2xl">
+                <p class="text-sm text-center text-gray-500 mt-2 italic">images/space-travel/play-store.png</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 bg-[#161b22] px-5 border-t border-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-10 tracking-tight">Ben <span class="text-[#ff4b4b]">Kimim?</span></h2>
+            <p class="text-lg text-gray-300 mb-8 leading-relaxed">Ben bilgi güvenliği öğrencisiyim, bilgi güvenliğinin yanı sıra yazılıma olan ilgimden dolayı oyun ve uygulama geliştiriyorum.</p>
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-medium">
+                <span class="px-5 py-2 bg-[#0e1117] rounded-full border border-gray-700">Python</span>
+                <span class="px-5 py-2 bg-[#0e1117] rounded-full border border-gray-700">C++ / C#</span>
+                <span class="px-5 py-2 bg-[#0e1117] rounded-full border border-gray-700">Tersine Mühendislik</span>
+                <span class="px-5 py-2 bg-[#0e1117] rounded-full border border-gray-700">Unity Game Dev</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 text-center text-gray-500 border-t border-gray-800">
+        <p>&copy; 2026 Yağız Tüm Hakları Saklıdır.</p>
+        <div class="mt-6 flex justify-center gap-6 text-2xl">
+            <a href="https://github.com/AliYagizPektas" target="_blank" class="hover:text-white transition"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/aliyagizpektas/" target="_blank" class="hover:text-white transition"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:aliyagizpektas123@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope"></i></a>
+        </div>
+    </footer>
+
+</body>
+</html>
