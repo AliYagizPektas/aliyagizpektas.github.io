@@ -11,6 +11,10 @@
         .nav-link:hover { color: #ff4b4b; transition: 0.3s; }
         .project-card { background: #1a1c24; border: 1px solid #30363d; transition: 0.3s; overflow: hidden; }
         .project-card:hover { border-color: #ff4b4b; transform: translateY(-5px); }
+        .slider-wrapper { display: flex; transition: transform 0.5s ease-in-out; width: 100%; height: 100%; }
+        .slide { flex: 0 0 100%; width: 100%; height: 100%; }
+        .slider-btn { background: rgba(0,0,0,0.6); backdrop-blur: sm; opacity: 0; transition: 0.3s; }
+        .relative.group:hover .slider-btn { opacity: 1; }
     </style>
 </head>
 <body>
@@ -34,70 +38,80 @@
 
     <section class="py-20 px-5 max-w-7xl mx-auto">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            <div class="project-card rounded-3xl p-8">
-                <div class="text-3xl text-[#ff4b4b] mb-4"><i class="fas fa-wallet"></i></div>
-                <h3 class="text-2xl font-bold mb-3 tracking-tight">Hesap Defterim</h3>
-                <p class="text-gray-400 mb-6 leading-relaxed">İşletmeler ve bireyler için tasarlanmış, dinamik formül motoruna ve yürüyen bakiye sistemine sahip finansal takip otomasyonu. Python ve PySide6 ile geliştirildi.</p>
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-[#ff4b4b] mb-6">
-                    <span>#Python</span> <span>#PySide6</span> <span>#Pandas</span>
+            <div class="project-card rounded-3xl p-8 flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl text-[#ff4b4b] mb-4"><i class="fas fa-wallet"></i></div>
+                    <h3 class="text-2xl font-bold mb-3 tracking-tight">Hesap Defterim</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">İşletmeler ve bireyler için tasarlanmış, dinamik formül motoruna ve yürüyen bakiye sistemine sahip finansal takip otomasyonu.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-[#ff4b4b] mb-6">
+                        <span>#Python</span> <span>#PySide6</span> <span>#Pandas</span>
+                    </div>
                 </div>
                 <a href="#hesap-detay" class="inline-flex items-center gap-2 text-[#ff4b4b] font-bold hover:text-[#ff6b6b] transition">
                     Detayları Gör <i class="fas fa-arrow-down text-sm"></i>
                 </a>
             </div>
 
-            <div class="project-card rounded-3xl p-8">
-                <div class="text-3xl text-blue-400 mb-4"><i class="fas fa-gamepad"></i></div>
-                <h3 class="text-2xl font-bold mb-3 tracking-tight">Unity Uzay Yolculuğu</h3>
-                <p class="text-gray-400 mb-6 leading-relaxed">C# ve Unity oyun motoru kullanılarak geliştirilen, 2D Uzay oyunum.</p>
-                <div class="flex flex-wrap gap-2 text-xs font-mono text-blue-400 mb-6">
-                    <span>#C Sharp</span> <span>#Unity</span> <span>#Unity2D</span> <span>#PixelGame</span>
+            <div class="project-card rounded-3xl p-8 flex flex-col justify-between">
+                <div>
+                    <div class="text-3xl text-blue-400 mb-4"><i class="fas fa-gamepad"></i></div>
+                    <h3 class="text-2xl font-bold mb-3 tracking-tight">Unity Uzay Yolculuğu</h3>
+                    <p class="text-gray-400 mb-6 leading-relaxed">C# ve Unity oyun motoru kullanılarak geliştirilen, 2D Uzay oyunum.</p>
+                    <div class="flex flex-wrap gap-2 text-xs font-mono text-blue-400 mb-6">
+                        <span>#C Sharp</span> <span>#Unity</span> <span>#Unity2D</span> <span>#PixelGame</span>
+                    </div>
                 </div>
                 <a href="#space-detay" class="inline-flex items-center gap-2 text-blue-400 font-bold hover:text-blue-500 transition">
                     Detayları Gör <i class="fas fa-arrow-down text-sm"></i>
                 </a>
             </div>
-
         </div>
     </section>
 
-    <section id="hesap-detay" class="py-16 px-5 max-w-6xl mx-auto border-t border-gray-800">
-        <h2 class="text-3xl font-bold mb-8">Hesap Defterim <span class="text-[#ff4b4b]">Detaylı İnceleme</span></h2>
+    <section id="hesap-detay" class="py-20 px-5 max-w-7xl mx-auto border-t border-gray-800 scroll-mt-20">
+        <h2 class="text-4xl font-bold mb-12 tracking-tight">Hesap Defterim <span class="text-[#ff4b4b]">Detaylı İnceleme</span></h2>
         <div class="grid md:grid-cols-2 gap-12 items-start">
-            <div class="space-y-6">
-                <div class="group">
-                    <img src="images/hesap-defteri/mainpage.png" alt="Ana Ekran" class="rounded-xl border border-gray-700 hover:border-[#ff4b4b] transition w-full shadow-2xl">
-                    <p class="text-sm text-center text-gray-500 mt-2 italic">Ana Kontrol Paneli ve Firma Listesi</p>
+            <div class="relative group aspect-[16/10] overflow-hidden rounded-2xl border-2 border-gray-700 shadow-2xl bg-[#1a1c24]">
+                <div class="slider-wrapper" id="hesap-slider-wrapper">
+                    <div class="slide relative"><img src="images/hesap-defteri/mainpage.png" alt="Ana Kontrol Paneli" class="w-full h-full object-cover"></div>
+                    <div class="slide relative"><img src="images/hesap-defteri/avanslar.png" alt="Avans Takip Ekranı" class="w-full h-full object-cover"></div>
+                    <div class="slide relative"><img src="images/hesap-defteri/ayarlar.png" alt="Hesaplama Ayarları" class="w-full h-full object-cover"></div>
+                </div>
+                <button onclick="moveSlider(-1)" class="slider-btn absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full text-white z-10"><i class="fas fa-chevron-left text-xl"></i></button>
+                <button onclick="moveSlider(1)" class="slider-btn absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full text-white z-10"><i class="fas fa-chevron-right text-xl"></i></button>
+                <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-black/80 to-transparent z-10">
+                    <p id="hesap-slider-caption" class="text-gray-100 font-medium leading-snug">Görüntü Açıklaması</p>
                 </div>
             </div>
-            <div class="bg-[#1a1c24] p-8 rounded-3xl border border-gray-800">
-                <h3 class="text-xl font-bold mb-4 text-[#ff4b4b]">Teknik Özellikler</h3>
-                <ul class="space-y-4 text-gray-300">
-                    <li><i class="fas fa-check-circle text-[#ff4b4b] mr-2"></i> <strong>Dinamik Formül Motoru:</strong> Esnek hesaplama altyapısı.</li>
-                    <li><i class="fas fa-check-circle text-[#ff4b4b] mr-2"></i> <strong>Avans Yönetimi:</strong> Çalışan ödeme takibi ve bakiye düşümü.</li>
-                    <li><i class="fas fa-check-circle text-[#ff4b4b] mr-2"></i> <strong>Veri Güvenliği:</strong> Yerel veritabanı ve güvenli yol yapısı.</li>
+
+            <div class="sticky top-28 bg-[#1a1c24] p-10 rounded-3xl border border-gray-800 shadow-xl">
+                <h3 class="text-2xl font-bold mb-6 text-[#ff4b4b]">Teknik Özellikler</h3>
+                <ul class="space-y-5 text-gray-200">
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#ff4b4b] mt-1 text-lg"></i><span><strong>Dinamik Formül Motoru:</strong> Esnek hesaplama altyapısı.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#ff4b4b] mt-1 text-lg"></i><span><strong>Avans Yönetimi:</strong> Çalışan ödeme takibi ve bakiye düşümü.</span></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-check-circle text-[#ff4b4b] mt-1 text-lg"></i><span><strong>Veri Güvenliği:</strong> Yerel veritabanı ve güvenli yol yapısı.</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="space-detay" class="py-16 px-5 max-w-6xl mx-auto border-t border-gray-800">
-        <h2 class="text-3xl font-bold mb-8">Space Travel <span class="text-blue-500">Oynanış Mekanikleri</span></h2>
+    <section id="space-detay" class="py-20 px-5 max-w-7xl mx-auto border-t border-gray-800 scroll-mt-20">
+        <h2 class="text-4xl font-bold mb-12 tracking-tight">Space Travel <span class="text-blue-500">Oynanış Mekanikleri</span></h2>
         <div class="grid md:grid-cols-2 gap-12 items-start">
-            <div class="bg-[#1a1c24] p-8 rounded-3xl border border-gray-800 order-2 md:order-1">
-                <h3 class="text-xl font-bold mb-4 text-blue-500">Oyun Hakkında</h3>
-                <p class="text-gray-300 mb-4">Google Play Store'da yayında olan bu projemde, oyuncuların reflekslerini test eden minimalist bir sonsuz koşu deneyimi sundum.</p>
-                <a href="https://play.google.com/store/apps/details?id=com.Larayp.SpaceTravel&hl=en" target="_blank" class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-bold transition">Play Store'da Görüntüle</a>
+            <div class="bg-[#1a1c24] p-10 rounded-3xl border border-gray-800 order-2 md:order-1">
+                <h3 class="text-2xl font-bold mb-6 text-blue-500">Oyun Hakkında</h3>
+                <p class="text-gray-200 mb-6 leading-relaxed">Google Play Store'da yayında olan bu projemde, oyuncuların reflekslerini test eden minimalist bir sonsuz koşu deneyimi sundum.</p>
+                <a href="https://play.google.com/store/apps/details?id=com.Larayp.SpaceTravel&hl=en" target="_blank" class="inline-block bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-bold transition flex items-center gap-2 w-max">
+                    <i class="fab fa-google-play"></i> Play Store'da Görüntüle
+                </a>
             </div>
             <div class="order-1 md:order-2">
-                <img src="https://via.placeholder.com/600x400/1a1c24/888?text=Oyun+Gorseli+Ekle" alt="Oyun Görseli" class="rounded-xl border border-blue-900 w-full shadow-2xl">
-                <p class="text-sm text-center text-gray-500 mt-2 italic">images/space-travel/play-store.png</p>
+                <img src="images/space-travel/play-store.png" alt="Google Play Görseli" class="rounded-2xl border-2 border-gray-700 shadow-2xl w-full">
             </div>
         </div>
     </section>
 
-    <section id="about" class="py-24 bg-[#161b22] px-5 border-t border-gray-800">
+    <section id="about" class="py-24 bg-[#161b22] px-5 border-t border-gray-800 scroll-mt-20">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold mb-10 tracking-tight">Ben <span class="text-[#ff4b4b]">Kimim?</span></h2>
             <p class="text-lg text-gray-300 mb-8 leading-relaxed">Ben bilgi güvenliği öğrencisiyim, bilgi güvenliğinin yanı sıra yazılıma olan ilgimden dolayı oyun ve uygulama geliştiriyorum.</p>
@@ -118,6 +132,25 @@
             <a href="mailto:aliyagizpektas123@gmail.com" class="hover:text-white transition"><i class="fas fa-envelope"></i></a>
         </div>
     </footer>
+
+    <script>
+        const wrapper = document.getElementById('hesap-slider-wrapper');
+        const caption = document.getElementById('hesap-slider-caption');
+        let currentIndex = 0;
+        const slides = [
+            { text: 'Ana Kontrol Paneli: Firma listesi ve yürüyen bakiyeler.' },
+            { text: 'Avans Takip Ekranı: Dinamik hesaplama ve vade takibi.' },
+            { text: 'Hesaplama Ayarları: Excel benzeri esnek formül yapısı.' }
+        ];
+
+        function moveSlider(direction) {
+            currentIndex = (currentIndex + direction + slides.length) % slides.length;
+            wrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            caption.textContent = slides[currentIndex].text;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => moveSlider(0));
+    </script>
 
 </body>
 </html>
